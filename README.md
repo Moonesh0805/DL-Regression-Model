@@ -108,8 +108,8 @@ plt.show()
 # Final Weights & Bias
 final_weight = model.linear.weight.item()
 final_bias = model.linear.bias.item()
-print("\nName:Dharshan D ")
-print("Register No: 212223230045")
+print("\nName:MOONESH P ")
+print("Register No: 212223230126")
 print(f'\nFinal Weight: {final_weight:.8f}, Final Bias: {final_bias:.8f}')
 #  Best-Fit Line Calculation
 x1 = torch.tensor([X.min().item(), X.max().item()]) # Find min and max values of X
