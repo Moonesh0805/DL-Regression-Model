@@ -49,26 +49,19 @@ import torch
 import torch.nn as nn
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
-
-X = torch.linspace(1,70,70).reshape(-1,1)
-
+X = torch.linspace(1,50,50).reshape(-1,1)
+#X
 torch.manual_seed(71)
-e = torch.randint(-8,9,(70,1),dtype=torch.float)
-
+e = torch.randint(-8,9,(50,1),dtype=torch.float)
+#e
 y = 2*X + 1 + e
-print(y.shape)
-
 plt.scatter(X.numpy(), y.numpy(),color='red')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.title('Generated Data for Linear Regression')
 plt.show()
 
-
-torch.manual_seed(59)
-
-
+# Define the Linear Model Class
 class Model(nn.Module):
     def __init__(self, in_features, out_features):
         super().__init__()
@@ -77,62 +70,64 @@ class Model(nn.Module):
     def forward(self, x):
         y_pred = self.linear(x)
         return y_pred
-
-
-torch.manual_seed(59)
+    # Initialize the Model
+torch.manual_seed(59)  # Ensure same initial weights
 model = Model(1, 1)
 print('Weight:', model.linear.weight.item())
 print('Bias:  ', model.linear.bias.item())
-
+initial_weight = model.linear.weight.item()
+initial_bias = model.linear.bias.item()
+print("\nName:Dharshan D ")
+print("Register No: 212223230045")
+print(f'Initial Weight: {initial_weight:.8f}, Initial Bias: {initial_bias:.8f}\n')
+# Define Loss Function & Optimizer
 loss_function = nn.MSELoss()
-
-optimizer = torch.optim.SGD(model.parameters(), lr=0.0001)
-
+optimizer = torch.optim.SGD(model.parameters(),lr=0.001)
+# Train the Model
 epochs = 50
 losses = []
 
-for epoch in range(1, epochs + 1):
-    optimizer.zero_grad()
-    y_pred = model(X)
-    loss = loss_function(y_pred, y)
-    losses.append(loss.item())
-
-    loss.backward()
-    optimizer.step()
-
-
+for epoch in range(1, epochs + 1):  # Loop over epochs
+    y_pred = model.forward(X)
+    loss = loss_function(y_pred,y)
+    losses.append(loss)
+    # Print loss, weight, and bias for EVERY epoch
     print(f'epoch: {epoch:2}  loss: {loss.item():10.8f}  '
           f'weight: {model.linear.weight.item():10.8f}  '
           f'bias: {model.linear.bias.item():10.8f}')
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+# Plot Loss Curve
 
-plt.plot(range(epochs), losses)
+plt.plot(range(epochs), [l.item() for l in losses], color='blue')
 plt.ylabel('Loss')
-plt.xlabel('epoch');
+plt.xlabel('Epoch')
+plt.title('Loss Curve')
 plt.show()
-
-
-x1 = torch.tensor([X.min().item(), X.max().item()])
-
-
-w1, b1 = model.linear.weight.item(), model.linear.bias.item()
-
-
-y1 = x1 * w1 + b1
-
-
-print(f'Final Weight: {w1:.8f}, Final Bias: {b1:.8f}')
-print(f'X range: {x1.numpy()}')
-print(f'Predicted Y values: {y1.numpy()}')
-
-
-plt.scatter(X.numpy(), y.numpy(), label="Original Data")
-plt.plot(x1.numpy(), y1.numpy(), 'r', label="Best-Fit Line")
+# Final Weights & Bias
+final_weight = model.linear.weight.item()
+final_bias = model.linear.bias.item()
+print("\nName:Dharshan D ")
+print("Register No: 212223230045")
+print(f'\nFinal Weight: {final_weight:.8f}, Final Bias: {final_bias:.8f}')
+#  Best-Fit Line Calculation
+x1 = torch.tensor([X.min().item(), X.max().item()]) # Find min and max values of X
+y1 = x1 * final_weight + final_bias # Compute corresponding y-values using trained model
+# Plot Original Data & Best-Fit Line
+plt.scatter(X, y, label="Original Data")
+plt.plot(x1, y1, 'r', label="Best-Fit Line")
 plt.xlabel('x')
 plt.ylabel('y')
 plt.title('Trained Model: Best-Fit Line')
 plt.legend()
 plt.show()
-
+# Prediction for x = 120
+x_new = torch.tensor([[120.0]])  # New input as a tensor
+y_new_pred = model(x_new).item()  # Predict using trained model
+print("\nName:MOONESH P ")
+print("Register No: 212223230126")
+print(f"\nPrediction for x = 120: {y_new_pred:.8f}")
 
 ```
 
