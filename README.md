@@ -40,7 +40,7 @@ Use the trained model to predict  for a new input value .
 
 ## PROGRAM
 
-### Name: P.MOONESH
+### Name: MOONESH P
 
 ### Register Number: 212223230126
 
@@ -128,7 +128,6 @@ y_new_pred = model(x_new).item()  # Predict using trained model
 print("\nName:MOONESH P ")
 print("Register No: 212223230126")
 print(f"\nPrediction for x = 120: {y_new_pred:.8f}")
-
 ```
 
 ### Dataset Information
@@ -137,20 +136,34 @@ print(f"\nPrediction for x = 120: {y_new_pred:.8f}")
 
 
 ### OUTPUT
-Training Loss Vs Iteration Plot
+T
 
-<img width="580" height="432" alt="image" src="https://github.com/user-attachments/assets/b840fbd1-2e54-4e93-be32-dca5828fa1c2" />
+### OUTPUT
+
+Dataset Information
+<br/>
+
+<img width="571" height="455" alt="image" src="https://github.com/user-attachments/assets/7a9ee54c-310f-46cf-9aba-33443319270e" />
+
+Training Loss Vs Iteration Plot
+<br/>
+
+<img width="571" height="455" alt="image-1" src="https://github.com/user-attachments/assets/d61bb30d-beb1-4351-9c0d-d3bb608f1d25" />
+
+Loss Curve
+<br/>
+
+<img width="580" height="455" alt="484379878-6e501cc5-9007-4283-a14b-747e30bd223e" src="https://github.com/user-attachments/assets/96126463-6b61-428e-a048-cddd0cf1b59e" />
+
 
 
 Best Fit line plot
-
-<img width="571" height="455" alt="image" src="https://github.com/user-attachments/assets/f8879903-b158-468a-8760-28d56e6edecc" />
-
-
-### New Sample Data Prediction
+<br/>
 
 
-<img width="722" height="63" alt="image" src="https://github.com/user-attachments/assets/10815000-cf91-4786-8bc4-d4e711255fb1" />
+
+<img width="405" height="108" alt="name" src="https://github.com/user-attachments/assets/3b536f5a-1c9e-4cec-9972-74f931dc7efb" />
+
 
 
 ## RESULT
