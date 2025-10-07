@@ -162,7 +162,8 @@ Best Fit line plot
 
 
 
-<img width="405" height="108" alt="name" src="https://github.com/user-attachments/assets/3b536f5a-1c9e-4cec-9972-74f931dc7efb" />
+<img width="420" height="137" alt="Screenshot 2025-10-07 094909" src="https://github.com/user-attachments/assets/ee4bba3c-1e16-482c-bf73-48fe1453f30a" />
+
 
 
 
